@@ -1,0 +1,133 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      porosityProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+D 0;
+F 780;
+
+porousBlockage_x1
+{
+    type            DarcyForchheimer;
+
+    cellZone        porousBlockage_x1;
+
+    
+
+    d   ($D $D $D); // -1000, interesting
+    f   ($F $F $F);
+
+    coordinateSystem
+    {
+        type    cartesian;
+        origin  (0 0 0);
+        coordinateRotation
+        {
+            type    axesRotation;
+            e3      (-1 0 2);
+            e2      (0 1 0);
+        }
+    }
+}
+
+porousBlockage_x2 //porosity2
+{
+    type            DarcyForchheimer;
+
+    cellZone        porousBlockage_x2;
+
+    d   ($D $D $D); // -1000, interesting
+    f   ($F $F $F);
+
+    coordinateSystem
+    {
+        type    cartesian;
+        origin  (0 0 0);
+        coordinateRotation
+        {
+            type    axesRotation;
+            e3      (1 0 2);
+            e2      (0 1 0);
+        }
+    }
+}
+
+porousBlockage_y1 //porosity11
+{
+    type            DarcyForchheimer;
+
+    cellZone        porousBlockage_y1;
+
+    d   ($D $D $D); // -1000, interesting
+    f   ($F $F $F);
+
+    coordinateSystem
+    {
+        type    cartesian;
+        origin  (0 0 0);
+        coordinateRotation
+        {
+            type    axesRotation;
+            e2      (1 0 0);
+            e3      (0 1 2);
+        }
+    }
+}
+
+porousBlockage_y2 //porosity22
+{
+    type            DarcyForchheimer;
+
+    cellZone        porousBlockage_y2;
+
+    d   ($D $D $D); // -1000, interesting
+    f   ($F $F $F);
+
+    coordinateSystem
+    {
+        type    cartesian;
+        origin  (0 0 0);
+        coordinateRotation
+        {
+            type    axesRotation;
+            e2      (1 0 0);
+            e3      (0 -1 2);
+        }
+    }
+}
+
+porousBlockage_roof //porosity3
+{
+    type            DarcyForchheimer;
+
+    cellZone        porousBlockage_roof;
+
+    d   ($D $D $D); // -1000, interesting
+    f   ($F $F $F);
+
+    coordinateSystem
+    {
+        type    cartesian;
+        origin  (0 0 0);
+        coordinateRotation
+        {
+            type    axesRotation;
+            e2      (1 0 0);
+            e3      (0 1 0);
+        }
+    }
+}
+
+
+// ************************************************************************* //
